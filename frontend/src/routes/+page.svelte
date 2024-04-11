@@ -5,6 +5,7 @@
 		quantity = ++quantity;
 	}
 	function removeFromcart() {
+		if (quantity != 0) {
 			quantity = --quantity;
 			inventory = inventory.slice(0,-1)
 		}
