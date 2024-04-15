@@ -109,7 +109,7 @@
 
 <style lang="scss">
 	div {
-		span {
+		div {
 			font-size: large;
 		}
 	}
