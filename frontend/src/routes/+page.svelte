@@ -28,27 +28,27 @@
 	function handleClick(e) {
 		console.log(e);
 	}
-	 let searchedValue = '';
+	let searchedValue = '';
 
 	let checked = false;
-    $: console.log(checked);
-    let product = {
-        name: 't-shirt',
-        quantity: 0
-    };
-    function increment() {
-        product.quantity += 1;
-    }
-    let products = [
-        {name: "t-shirt", quantity: 10},
-        {name:'mug', quantity: 43},
-        {name: 'pizza', quantité: 40},
-        {name: "glace", quantité: 10045},
-    ]
-    function addProduct() {
-        let cup = {name: 'cup', quantity: 4};
-        products = [cup, ...products];
-    };
+	$: console.log(checked);
+	let product = {
+		name: 't-shirt',
+		quantity: 0
+	};
+	function increment() {
+		product.quantity += 1;
+	}
+	let products = [
+		{ name: 't-shirt', quantity: 10 },
+		{ name: 'mug', quantity: 43 },
+		{ name: 'pizza', quantité: 40 },
+		{ name: 'glace', quantité: 10045 }
+	];
+	function addProduct() {
+		let cup = { name: 'cup', quantity: 4 };
+		products = [cup, ...products];
+	}
 </script>
 
 <h1>Welcome to SvelteKit</h1>
@@ -85,28 +85,32 @@
 	Searched: {searchedValue}
 </h3>
 
-
 <!-- <input on:keyup={setSearchedValue} type="text" id="myText" /> -->
 <input bind:value={searchedValue} type="text" id="myText" />
 <h3>
-    Checked: {checked}
+	Checked: {checked}
 </h3>
-<input type="checkbox" bind:checked>
-
+<input type="checkbox" bind:checked />
 
 {#if product.quantity >= 1}
-<div style="background: LightGreen; padding: 4px;">Ce produit est en stock</div>
+	<div style="background: LightGreen; padding: 4px;">Ce produit est en stock</div>
 {:else if product.quantity === 0}
-<div style="background: LightCoral; padding 4px;"> Cet objet n'est plus en stock</div>
+	<div style="background: LightCoral; padding 4px;">Cet objet n'est plus en stock</div>
 {:else}
-<div style="background: LemonChiffon; padding: 4px">Seulement quelques objets restants :4</div>
+	<div style="background: LemonChiffon; padding: 4px">Seulement quelques objets restants :4</div>
 {/if}
 <h1>Current {product.name} Quantity: {product.quantity}</h1>
 <button on:click={increment}>Increment</button>
-{#each products as product, i(product.name)}
-  <h3>{product.name}</h3>
-  <div>{i}</div>
-  {/each}
-  <button on:click={addProduct}>
-Add Product
-</button>
+{#each products as product, i (product.name)}
+	<h3>{product.name}</h3>
+	<div>{i}</div>
+{/each}
+<button on:click={addProduct}> Add Product </button>
+
+<style lang="scss">
+	div {
+		span {
+			font-size: large;
+		}
+	}
+</style>
