@@ -1,4 +1,6 @@
 <script>
+	import Hero from "../lib/Components/Hero.svelte";
+
 	let quantity = 0;
 	function addTocart() {
 		if (remaining > 0) {
@@ -50,11 +52,11 @@
 		products = [cup, ...products];
 	}
 </script>
-
-<h1>Welcome to SvelteKit</h1>
+<Hero heroImage="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+<h1 class="text-3xl font-bold underline">Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
-<h1>Your pizza cart has {quantity} items. UwU baka</h1>
+<h1 class="text-indigo-400">Your pizza cart has {quantity} items. UwU baka</h1>
 <button on:click={addTocart}> Add To Cart </button>
 <button on:click={removeFromcart}> Remove From Cart </button>
 <h2>{inventory}</h2>
