@@ -104,6 +104,7 @@
 <h1>Current {product.name} Quantity: {product.quantity}</h1>
 <button on:click={increment}>Increment</button>
 {#each products as product, i (product.name)}
+<div class="mb-10"></div>
 	<h3>{product.name}</h3>
 	<div>{i}</div>
 {/each}
