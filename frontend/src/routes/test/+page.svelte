@@ -1,5 +1,5 @@
 <script>
-	import Hero from "../lib/Components/Hero.svelte";
+	import Hero from "$lib/Components/Hero.svelte";
 
 	let quantity = 0;
 	function addTocart() {
