@@ -1,0 +1,1 @@
+<h1>Page de paiement</h1>
