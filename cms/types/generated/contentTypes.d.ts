@@ -400,7 +400,7 @@ export interface ApiCarrouselCarrousel extends Schema.CollectionType {
     image: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     url: Attribute.String &
