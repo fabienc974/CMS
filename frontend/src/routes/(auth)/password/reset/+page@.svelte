@@ -1,0 +1,1 @@
+<p>Réinitialiser le password</p>

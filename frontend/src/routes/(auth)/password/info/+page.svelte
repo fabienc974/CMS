@@ -1,0 +1,1 @@
+<p>Password should be at least 8 chars</p>
