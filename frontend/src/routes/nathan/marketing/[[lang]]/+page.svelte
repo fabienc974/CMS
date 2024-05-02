@@ -5,7 +5,7 @@
         de: 'hallo',
         fr: 'bonjour'
     };
-    const { lang = 'en'} = $page.params;
+    const { lang = 'fr'} = $page.params;
     const greeting = greetings [lang];
 </script>
 
