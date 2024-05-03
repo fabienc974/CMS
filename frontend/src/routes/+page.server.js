@@ -10,6 +10,6 @@ export async function load({ fetch, params }) {
 	// utilise une promesse pour récupérer les fetch. permet de faire plusieurs fetch de contenus
 	const [carrousel] = await Promise.all([carrouselDataStrapi]); // utilise une pro
 	const { data } = carrousel; // desctructure le résultat de carrousel pour accéder aux données du fetch
-
+	console.log("server only",data);
 	return { carrousel: data.map((el) => el.attributes) };
 }
