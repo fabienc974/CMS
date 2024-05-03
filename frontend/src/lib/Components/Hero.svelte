@@ -15,7 +15,7 @@
 	const fetchCarrousel = async () => {
 		let datas;
 		try {
-			datas = await fetch('http://localhost:1337/api/carrousels', {
+			datas = await fetch('http://localhost:1337/api/carrousels?populate=*', {
 				Authorization: `Bearer ${jwt}`
 			}).then((res) => res.json());
 			console.log(datas);
