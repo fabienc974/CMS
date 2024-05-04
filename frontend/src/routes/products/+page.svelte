@@ -6,6 +6,21 @@
 	console.log(categories);
 </script>
 
+<!-- 
+  //1. Afficher les données qui sont remontées de l'api dans la page HTML afin de s'assurer que tout est disponible. 
+  indice : utiliser l'objet categories dans la fonction JSON.stringify(categories)
+
+  //2. créer une boucle afin d'appeler le composant CategoryCard.svelteHTML
+  indice : 
+  - importer le composant dans la partie script
+  - pour créer une boucle il faut utiliser : {#each items as item}   ---- ici ton contenu ---- {/each}
+  -- passer categories dans les paramètres de la boucle puis passer item dans les données de composants CategoryCard
+  --- indice : dans le composant CategoryCard, la variable qui recueille les données s'appelle datas (tu peux la changer si tu veux une nom de variable différent) 
+
+  // 3. une fois dans le composant CategoryCard, tu devras afficher les différents éléments (descriptifs, nom, image etc.Page.Page.) de ta catégorie.
+-->
+
+
 <div class="bg-gray-100">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 		<div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
