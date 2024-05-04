@@ -362,137 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiCarrouselCarrousel extends Schema.CollectionType {
-  collectionName: 'carrousels';
-  info: {
-    singularName: 'carrousel';
-    pluralName: 'carrousels';
-    displayName: 'Carrousel';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Blocks &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
-        };
-      }>;
-    url: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    start_publish_date: Attribute.DateTime &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    end_publish_date: Attribute.DateTime &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    position: Attribute.Enumeration<
-      [
-        'top left',
-        'top center',
-        'top right',
-        'middle left',
-        'middle center',
-        'middle right',
-        'bottom left',
-        'bottom center',
-        'bottom right'
-      ]
-    > &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::carrousel.carrousel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::carrousel.carrousel',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::carrousel.carrousel',
-      'oneToMany',
-      'api::carrousel.carrousel'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiPostPost extends Schema.CollectionType {
-  collectionName: 'posts';
-  info: {
-    singularName: 'post';
-    pluralName: 'posts';
-    displayName: 'Post';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-    content: Attribute.Blocks;
-    author_post: Attribute.Relation<
-      'api::post.post',
-      'manyToOne',
-      'plugin::users-permissions.user'
-    >;
-    slug: Attribute.UID<'api::post.post', 'title'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -924,6 +793,269 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCarrouselCarrousel extends Schema.CollectionType {
+  collectionName: 'carrousels';
+  info: {
+    singularName: 'carrousel';
+    pluralName: 'carrousels';
+    displayName: 'Carrousel';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    title: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    image: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    url: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    start_publish_date: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    end_publish_date: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    position: Attribute.Enumeration<
+      [
+        'top left',
+        'top center',
+        'top right',
+        'middle left',
+        'middle center',
+        'middle right',
+        'bottom left',
+        'bottom center',
+        'bottom right'
+      ]
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    shortdescription: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::carrousel.carrousel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::carrousel.carrousel',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::carrousel.carrousel',
+      'oneToMany',
+      'api::carrousel.carrousel'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    active: Attribute.Boolean;
+    image: Attribute.Media;
+    description: Attribute.Blocks;
+    startdate: Attribute.DateTime;
+    enddate: Attribute.DateTime;
+    category: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiIngredientIngredient extends Schema.CollectionType {
+  collectionName: 'ingredients';
+  info: {
+    singularName: 'ingredient';
+    pluralName: 'ingredients';
+    displayName: 'Ingredient';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    shortdescription: Attribute.String;
+    image: Attribute.Media;
+    products: Attribute.Relation<
+      'api::ingredient.ingredient',
+      'oneToMany',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ingredient.ingredient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ingredient.ingredient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPostPost extends Schema.CollectionType {
+  collectionName: 'posts';
+  info: {
+    singularName: 'post';
+    pluralName: 'posts';
+    displayName: 'Post';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    content: Attribute.Blocks;
+    author_post: Attribute.Relation<
+      'api::post.post',
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    slug: Attribute.UID<'api::post.post', 'title'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiProductProduct extends Schema.CollectionType {
+  collectionName: 'products';
+  info: {
+    singularName: 'product';
+    pluralName: 'products';
+    displayName: 'Product';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Blocks;
+    active: Attribute.Boolean;
+    image: Attribute.Media;
+    startdate: Attribute.DateTime;
+    enddate: Attribute.DateTime;
+    category: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'api::category.category'
+    >;
+    price: Attribute.Decimal;
+    shortdescription: Attribute.String;
+    ingredient: Attribute.Relation<
+      'api::product.product',
+      'manyToOne',
+      'api::ingredient.ingredient'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product.product',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -934,8 +1066,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::carrousel.carrousel': ApiCarrouselCarrousel;
-      'api::post.post': ApiPostPost;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -944,6 +1074,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::carrousel.carrousel': ApiCarrouselCarrousel;
+      'api::category.category': ApiCategoryCategory;
+      'api::ingredient.ingredient': ApiIngredientIngredient;
+      'api::post.post': ApiPostPost;
+      'api::product.product': ApiProductProduct;
     }
   }
 }
