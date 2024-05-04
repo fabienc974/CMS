@@ -1,7 +1,7 @@
 <script>
   export let datas; // passe les arguments au composant
+  console.log(datas)
 </script>
-
 <div
   class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark">
   <a href="#!">
@@ -11,7 +11,7 @@
       alt="" />
   </a>
   <div class="p-6 text-surface dark:text-white">
-    <h5 class="mb-2 text-xl font-medium leading-tight">Card title</h5>
+    <h5 class="mb-2 text-xl font-medium leading-tight">{datas.attributes.name}</h5>
     <p class="mb-4 text-base">
       Some quick example text to build on the card title and make up the
       bulk of the card's content.

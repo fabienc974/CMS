@@ -1,5 +1,6 @@
 <script>
 	import { goto, beforeNavigate, afterNavigate } from '$app/navigation';
+	import CategoryCard from '$lib/Components/Cards/CategoryCard.svelte';
 	// on récupère toutes les données de nos catégories de produits
 	export let data;
 	const { categories } = data;
@@ -10,7 +11,7 @@
   //1. Afficher les données qui sont remontées de l'api dans la page HTML afin de s'assurer que tout est disponible. 
   indice : utiliser l'objet categories dans la fonction JSON.stringify(categories)
 
-  //2. créer une boucle afin d'appeler le composant CategoryCard.svelteHTML
+  //2. créer une boucle afin d'appeler le composant CategoryCard.svelte
   indice : 
   - importer le composant dans la partie script
   - pour créer une boucle il faut utiliser : {#each items as item}   ---- ici ton contenu ---- {/each}
@@ -19,6 +20,14 @@
 
   // 3. une fois dans le composant CategoryCard, tu devras afficher les différents éléments (descriptifs, nom, image etc.Page.Page.) de ta catégorie.
 -->
+
+
+{#each categories.data as element} 
+
+<CategoryCard datas = {element} />
+
+{/each} 
+
 
 
 <div class="bg-gray-100">
