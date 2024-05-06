@@ -1,27 +1,19 @@
 <script>
-  export let datas; // passe les arguments au composant
-  console.log(datas)
+  export let content; // passe les arguments au composant
+  console.log(content)
 </script>
-<div
-  class="block rounded-lg bg-white shadow-secondary-1 dark:bg-surface-dark">
-  <a href="#!">
-    <img
-      class="rounded-t-lg"
-      src="https://tecdn.b-cdn.net/img/new/standard/nature/184.jpg"
-      alt="" />
-  </a>
-  <div class="p-6 text-surface dark:text-white">
-    <h5 class="mb-2 text-xl font-medium leading-tight">{datas.attributes.name}</h5>
-    <p class="mb-4 text-base">
-      Some quick example text to build on the card title and make up the
-      bulk of the card's content.
-    </p>
-    <button
-      type="button"
-      class="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-primary-3 transition duration-150 ease-in-out hover:bg-primary-accent-300 hover:shadow-primary-2 focus:bg-primary-accent-300 focus:shadow-primary-2 focus:outline-none focus:ring-0 active:bg-primary-600 active:shadow-primary-2 dark:shadow-black/30 dark:hover:shadow-dark-strong dark:focus:shadow-dark-strong dark:active:shadow-dark-strong"
-      data-twe-ripple-init
-      data-twe-ripple-color="light">
-      Button
-    </button>
-  </div>
+
+<div class="w-full sm:w-1/2 md:w-1/3 flex flex-col p-3">
+  <div class="bg-white rounded-lg shadow-lg overflow-hidden flex-1 flex flex-col">
+    <div class="bg-cover h-48" style="background-image: url(https://images.unsplash.com/photo-1523978591478-c753949ff840?w=900);"></div>
+    <div class="p-4 flex-1 flex flex-col" style="
+">
+      <h3 class="mb-4 text-2xl">{content.attributes.name}</h3>
+      <div class="mb-4 text-grey-darker text-sm flex-1">
+        <p> {content.attributes.description} </p>
+      </div>
+      <a href="#" class="border-t border-grey-light pt-2 text-xs text-grey hover:text-red uppercase no-underline tracking-wide" style="
+">Twitter</a>
+    </div>
+  </div>  
 </div>

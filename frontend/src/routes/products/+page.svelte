@@ -20,13 +20,14 @@
 
   // 3. une fois dans le composant CategoryCard, tu devras afficher les différents éléments (descriptifs, nom, image etc.Page.Page.) de ta catégorie.
 -->
-
+<div class="flex flex-wrap -m-3"> 
 
 {#each categories.data as element} 
 
-<CategoryCard datas = {element} />
+<CategoryCard content = {element} />
 
 {/each} 
+</div>
 
 
 
