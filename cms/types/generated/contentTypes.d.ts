@@ -915,14 +915,14 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     name: Attribute.String;
     active: Attribute.Boolean;
     image: Attribute.Media;
-    description: Attribute.Blocks;
     startdate: Attribute.DateTime;
     enddate: Attribute.DateTime;
-    categories: Attribute.Relation<
+    parent: Attribute.Relation<
       'api::category.category',
       'oneToMany',
       'api::category.category'
     >;
+    shortdesc: Attribute.RichText;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

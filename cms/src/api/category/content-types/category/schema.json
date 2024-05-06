@@ -29,19 +29,19 @@
         "audios"
       ]
     },
-    "description": {
-      "type": "blocks"
-    },
     "startdate": {
       "type": "datetime"
     },
     "enddate": {
       "type": "datetime"
     },
-    "categories": {
+    "parent": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::category.category"
+    },
+    "shortdesc": {
+      "type": "richtext"
     }
   }
 }
