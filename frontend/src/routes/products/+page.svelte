@@ -1,35 +1,33 @@
 <script>
 	import { goto, beforeNavigate, afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
+	console.log($page);
 	import CategoryCard from '$lib/Components/Cards/CategoryCard.svelte';
 	// on récupère toutes les données de nos catégories de produits
 	export let data;
 	const { categories } = data;
-	console.log(categories);
+
+	// on récupère uniquement les catégories qui sont en level 0 et qui ont un statut active = true et qui dispose d'une description
+	let topCategories = categories.data.filter(
+		(el) =>
+			el.attributes.parent.data.length == 0 &&
+			el.attributes.active &&
+			el.attributes.shortdesc != null
+	);
+
+	// modifie les urls de chaque élément afin d'avoir accès à son url
+	topCategories = topCategories.forEach((el) => {
+		el.attributes.slug = `${$page.route.id}/${el.attributes.name}`
+	});
+
+	console.log({ categories, topCategories });
 </script>
 
-<!-- 
-  //1. Afficher les données qui sont remontées de l'api dans la page HTML afin de s'assurer que tout est disponible. 
-  indice : utiliser l'objet categories dans la fonction JSON.stringify(categories)
-
-  //2. créer une boucle afin d'appeler le composant CategoryCard.svelte
-  indice : 
-  - importer le composant dans la partie script
-  - pour créer une boucle il faut utiliser : {#each items as item}   ---- ici ton contenu ---- {/each}
-  -- passer categories dans les paramètres de la boucle puis passer item dans les données de composants CategoryCard
-  --- indice : dans le composant CategoryCard, la variable qui recueille les données s'appelle datas (tu peux la changer si tu veux une nom de variable différent) 
-
-  // 3. une fois dans le composant CategoryCard, tu devras afficher les différents éléments (descriptifs, nom, image etc.Page.Page.) de ta catégorie.
--->
-<div class="flex flex-wrap -m-3"> 
-
-{#each categories.data as element} 
-
-<CategoryCard content = {element} />
-
-{/each} 
+<div class="flex flex-wrap m-3">
+	{#each topCategories as element}
+		<CategoryCard content={element} />
+	{/each}
 </div>
-
-
 
 <div class="bg-gray-100">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
