@@ -1,11 +1,10 @@
 <script>
 	import { goto, beforeNavigate, afterNavigate } from '$app/navigation';
-	import { page } from '$app/stores';
-	console.log($page);
 	import CategoryCard from '$lib/Components/Cards/CategoryCard.svelte';
+
 	// on récupère toutes les données de nos catégories de produits
 	export let data;
-	const { categories } = data;
+	const { categories, urlsrc } = data;
 
 	// on récupère uniquement les catégories qui sont en level 0 et qui ont un statut active = true et qui dispose d'une description
 	let topCategories = categories.data.filter(
@@ -13,21 +12,16 @@
 			el.attributes.parent.data.length == 0 &&
 			el.attributes.active &&
 			el.attributes.shortdesc != null
-	);
-
-	// modifie les urls de chaque élément afin d'avoir accès à son url
-	topCategories = topCategories.forEach((el) => {
-		el.attributes.slug = `${$page.route.id}/${el.attributes.name}`
-	});
-
-	console.log({ categories, topCategories });
+	);	
 </script>
 
-<div class="flex flex-wrap m-3">
-	{#each topCategories as element}
-		<CategoryCard content={element} />
-	{/each}
-</div>
+<section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+	<div class="flex flex-wrap m-3">
+		{#each topCategories as element}
+			<CategoryCard content={element} {urlsrc} />
+		{/each}
+	</div>
+</section>
 
 <div class="bg-gray-100">
 	<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
